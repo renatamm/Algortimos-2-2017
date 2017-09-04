@@ -1,0 +1,27 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+ 
+
+using namespace std;
+void main ()
+{ int i,tam;
+  string inicio,final,frase;
+
+  cout<<"Ingrese la frase a invertir: ";
+  getline(cin,frase);
+
+  tam=frase.length();
+  for(i=0;i<tam/2;i++)
+  {inicio=frase.substr(i,1);
+   final=frase.substr(tam-1-i,1);
+   frase.replace(i,1,final);
+   frase.replace(tam-1-i,1,inicio);
+  }
+
+  cout<<"La frase invertida es: "<<frase;
+
+  getch();
+
+}
