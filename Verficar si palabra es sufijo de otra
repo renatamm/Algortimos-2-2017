@@ -1,0 +1,33 @@
+#include "stdafx.h"
+	#include <iostream>
+	#include "conio.h"
+	#include <string>
+	#define MAX 20
+	
+
+	using namespace std;
+	
+
+	void main()
+	{
+		string palabra,sufijo;
+		int longituds,longitudp,pos;
+	
+
+		cout<<"Ingrese una palabra: ";
+		getline(cin,palabra);
+		cout<<"Ingrese otra palabra que sera el sufijo: ";
+		getline(cin,sufijo);
+	
+
+		longituds= sufijo.length();
+		longitudp= palabra.length();
+		pos=longitudp-longituds;
+	
+
+		if (palabra.substr(pos)==sufijo)
+			cout<<"es un sufijo";
+		else
+			cout<<"No es un sufijo";
+		getch();
+	}
