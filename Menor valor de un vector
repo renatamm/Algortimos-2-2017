@@ -1,0 +1,52 @@
+#include "stdafx.h"
+	#include <iostream>
+	#include "conio.h"
+	#define MAX 100
+	
+
+	using namespace std;
+	void cargar (double vec[],int n);
+	void menorvector (double vec[],int n);
+	
+
+	using namespace std;
+	void main ()
+	{
+		double vec[MAX];
+		int n;
+		cout<<"Ingrese el tamanho del vector: ";
+		cin>>n;
+		cargar (vec,n);
+		menorvector (vec,n);
+		getch();
+	}
+	
+
+	void cargar (double vec[], int n)
+	{
+		int i;
+		for (i=0;i<n;i++)
+		{
+			cout<<"vec["<<i<<"]= ";
+			cin>>vec[i];
+		}
+	}
+	
+
+	void menorvector (double vec[], int n)
+	{
+		int menor, posmenor,i;
+		menor=vec[0];
+		posmenor=0;
+		for (i=0;i<n;i++)
+		{
+			if (vec[i]<menor)
+			{
+				menor=vec[i];
+				posmenor=i;
+			}
+		}
+	
+
+		cout<<" El menor valor es: "<<menor<<" en la posicion: "<<posmenor;
+	}
