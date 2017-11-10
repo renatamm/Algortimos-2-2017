@@ -1,0 +1,55 @@
+#include "stdafx.h"
+	#include <iostream>
+	#include "conio.h"
+	#define MAX 100
+	
+
+	using namespace std;
+	void cargar (double vec[], int n);
+	void vecmayor (double vec[], int n);
+	
+
+	void main()
+	{
+		double vec[MAX];
+		int n;
+		cout<<"Ingrese el tamanho de su vector: ";
+		cin>>n;
+		cargar (vec,n);
+		vecmayor (vec,n);
+		getch();
+	
+
+	}
+	
+
+	void cargar (double vec[], int n)
+	{
+		int i;
+		for (i=0;i<n;i++)
+		{
+			cout<<"vec["<<i<<"]= ";
+		    cin>>vec[i];
+		}
+	}
+	
+
+	void vecmayor (double vec[], int n)
+	{
+		int mayor, posmayor,i;
+		mayor=vec[0];
+		posmayor=0;
+		for (i=0;i<n;i++)
+		{
+			if (vec[i]>mayor)
+			{
+				mayor=vec[i];
+				posmayor=i;
+			}
+				
+		}
+	
+
+		cout<<"El mayor valor es: "<<mayor<<" en la posicion "<<posmayor;
+		
+	}
