@@ -1,0 +1,82 @@
+// Programa que pide a 5 clientes dar sus puntajes sobre ciertos aspectos de un negocio, se saca el promedio de la puntuacion de cada uno
+	
+
+	#include "stdafx.h"
+	#include <iostream>
+	#include "conio.h"
+	#define MAX 20
+	
+
+	using namespace std;
+	void cargar (int M[MAX][MAX], int fil, int col);
+	void promedio  (int M[MAX][MAX], int fil, int col);
+	
+
+	void main()
+	{
+		int M[MAX][MAX], fil=5, col=4;
+		cout<<"ESTA ES UNA EVALUACION DE NUESTRO NEGOCIO--- GRACIAS POR PARTICIPAR"<<endl;
+		cout<<"Ingrese sus calificaciones del 1-10 siendo 1 el peor y 10 el mejor"<<endl;
+		cargar(M,fil,col);
+		cout<<endl<<"El promedio obtenido de cada cliente es:"<<endl;
+		promedio(M,fil,col);
+		getch();
+	}
+	
+
+	
+
+	void cargar (int M[MAX][MAX], int fil, int col)
+	{
+		for (int i=0; i<fil; i++)
+		{
+			cout<<endl<<"Cliente["<<i<<"]: "<<endl;
+			for (int j=0; j<col; j++)
+				if (j==0)
+				{
+					cout<<"Comida servida: ";
+					cin>>M[i][j];
+				}
+				else
+					if (j==1)
+					{
+						cout<<"Atencion de parte de los empleados: ";
+					    cin>>M[i][j];
+					}
+					else
+						if (j==2)
+						{
+							cout<<"Iluminacion: ";
+					        cin>>M[i][j];
+						}
+						else
+							if (j==3)
+							{
+								cout<<"Ambiente: ";
+					            cin>>M[i][j];
+							}
+		}
+	}
+	
+
+	
+
+	void promedio  (int M[MAX][MAX], int fil, int col)
+	{
+		int aux, prom;
+	
+
+		for (int i=0; i<fil; i++)
+		{
+			aux=0;
+			for (int j=0; j<col; j++)
+			{
+				aux=aux+M[i][j];
+			}
+			prom=aux/col;
+			aux=0;
+			cout<<"Cliente["<<i<<"]=" <<prom<<endl;
+		}
+	
+
+	}
