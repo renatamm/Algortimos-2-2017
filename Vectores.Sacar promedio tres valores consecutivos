@@ -1,0 +1,47 @@
+#include "stdafx.h"
+	#include <iostream>
+	#include "conio.h"
+	#define MAX 100
+	
+
+	using namespace std;
+	void cargarvector (double vec[], int n);
+	void promedio (double vec[], int n);
+	
+
+	
+
+	void main()
+	{
+		int n;
+		double vec[MAX];
+		cout<<" Ingrese el tamanho de su vector: ";
+		cin>>n;
+		cargarvector (vec,n);
+		promedio (vec,n);
+		getch();
+	}
+	
+
+	
+
+	void cargarvector (double vec[], int n)
+	{
+		int i;
+		for (i=0;i<n;i++)
+		{
+			cout<<"vec["<<i<<"]= ";
+			cin>>vec[i];
+		}
+	}
+	
+
+	void promedio (double vec[], int n)
+	{
+		int promedio;
+		for (int i=0;i<(n-2);i++)
+		{
+			promedio=(vec[i]+vec[i+1]+vec[i+2])/3;
+			cout<<" promedio = "<<promedio<<endl;
+		}
+	}
