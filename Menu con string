@@ -1,0 +1,236 @@
+#include "stdafx.h"
+	#include <iostream>
+	#include "conio.h"
+	#include <string>
+	
+
+	
+
+	using namespace std;
+	
+
+	void main()
+	{
+		int opcion, longitud,contador,pos,pos2;
+		string nombre,nombre2,substraccion;
+		do
+		{
+			cout<<"				 MENU				"<<endl;
+			cout<<"--------------------------------------------------------------"<<endl;
+			cout<<"[1] Leer datos string"<<endl;
+			cout<<"[2] Uso de length para determinar la longitud de un string"<<endl;
+			cout<<"[3] Uso de compare para determinar si dos cadenas son iguales"<<endl;
+			cout<<"[4] Numero de vocales en el nombre"<<endl;
+			cout<<"[5] Numero de vocales en el nombre (usando at)"<<endl;
+			cout<<"[6] Sacar desde una letra hasta el final del string"<<endl;
+			cout<<"[7] Sacar una parte del string"<<endl;
+			cout<<"[8] Intercambiar strings"<<endl;
+			cout<<"[9] Encuentra UN caracter en string"<<endl;
+			cout<<"[10] Invertir una frase (ver si es palindromo) "<<endl;
+			cout<<"[11] Quitar las vocales"<<endl;
+			cout<<"[0] SALIR"<<endl;
+			cout<<"---------------------------------------------------------------"<<endl;
+			cout<<endl;
+			cout<<"Elija una opcion: ";
+			cin>>opcion;
+	
+
+			switch (opcion)
+			{
+			case 1:
+				{
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					cout<<"El nombre ingresado es: "<<nombre;
+					cout<<endl<<endl;
+					break;
+				}
+			case 2:
+				{
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline (cin,nombre);
+					longitud=nombre.length();
+					cout<<"El nombre escrito tiene "<<longitud<<" letras";
+					cout<<endl<<endl;
+					break;
+				}
+			case 3:
+				{
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					cout<<"Ingrese un segundo nombre: ";
+					getline(cin,nombre2);
+					if (nombre.compare(nombre2)==0)
+						cout<<"Son iguales"<<endl;
+					else
+						cout<<"Son diferentes"<<endl;
+					cout<<endl<<endl;
+					break;
+				}
+			case 4:
+				{
+					cin.ignore();
+	        contador=0;
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					longitud=nombre.length();
+					for (int i=0; i<longitud; i++)
+						if ((nombre[i]=='a') || (nombre[i]=='e')|| (nombre[i]=='i')|| (nombre[i]=='o')|| (nombre[i]=='u'))
+							contador++;
+					cout<<"El nombre tiene "<<contador<<" vocales ";
+					cout<<endl<<endl;
+					break;
+				}
+			case 5:
+				{
+					cin.ignore();
+	        contador=0;
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					longitud=nombre.length();
+					for (int i=0; i<longitud; i++)
+					{
+						if ((nombre.at(i)=='a') || (nombre.at(i)=='e')|| (nombre.at(i)=='i')|| (nombre.at(i)=='o')|| (nombre.at(i)=='u'))
+							contador++;
+					}
+					cout<<"El nombre tiene "<<contador<<" vocales ";
+					cout<<endl<<endl;
+					break;
+				}
+			case 6:
+				{
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					longitud=nombre.length();
+					cout<<"Ingrese desde que posicion desea substraer el vector: ";
+					cin>>pos;
+					pos=pos-1;
+					substraccion= nombre.substr(pos);
+					cout<<"La substraccion es: "<<substraccion;
+					cout<<endl<<endl;
+					break;
+				}
+			case 7:
+				{
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					longitud=nombre.length();
+					cout<<"Ingrese desde donde desea substraer el nombre: ";
+					cin>>pos;
+					cout<<"Ingrese hasta donde desea substraer el nombre: ";
+					cin>>pos2;
+					pos=pos-1;
+					pos2=pos2-pos;
+					substraccion=nombre.substr(pos,pos2);
+					cout<<"La substraccion es: "<<substraccion;
+					cout<<endl<<endl;
+					break;
+				}
+			case 8:
+				{
+					cin.ignore();
+					cout<<"Ingrese un primer nombre: ";
+					getline (cin,nombre);
+					cout<<"Ingrese un segundo nombre: ";
+					getline (cin,nombre2);
+					nombre.swap(nombre2);
+					cout<<"El primer nombre ahora es: "<<nombre<<endl;
+					cout<<"El segundo nombre ahora es: "<<nombre2;
+					cout<<endl<<endl;
+					break;
+				}
+			case 9:
+				{
+					char letra;
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					longitud=nombre.length();
+					cout<<"Ingrese que letra desea buscar del nombre: ";
+					cin>>letra;
+					for (int i=0; i<longitud; i++)
+					{
+						if (nombre.at(i)==letra)
+						{
+							cout<<letra<<" si se encuentra en "<<nombre<<endl;
+							cout<<"La posicion de "<<letra<<" es: "<<i+1;
+						}
+						
+							
+					}
+					break;
+				}
+				
+			case 10:
+				{
+					char aux;
+					cin.ignore();
+					cout<<"Ingrese un nombre: ";
+					getline(cin,nombre);
+					nombre2=nombre;
+					longitud=nombre.length();
+					for (int i=0; i<(longitud/2); i++)
+					{
+						aux=nombre.at(i);
+						nombre.at(i)= nombre.at(longitud-1-i);
+						nombre.at(longitud-1-i)=aux;
+					}
+					cout<<"El nombre invertido es: ";
+					for (int j=0; j<longitud; j++)
+						cout<<nombre.at(j);
+	
+
+					if ((nombre.compare(nombre2)) == 0)
+						cout<<endl<<"Es palindromo";
+					else
+						cout<<endl<<"No es palindromo";
+					cout<<endl<<endl;
+					break;
+				}
+			case 11:
+				{
+					int contcons=0, contvoc=0;
+					cin.ignore();
+					cout<<"Ingrese un nombre :";
+					getline(cin,nombre);
+					nombre2=nombre;
+					longitud=nombre.length();
+					for (int i=0; i<longitud; i++)
+						if ((nombre.at(i)!= 'a')&&(nombre.at(i)!= 'e')&&(nombre.at(i)!= 'i')&&(nombre.at(i)!= 'o')&&(nombre.at(i)!= 'u'))
+						{
+							nombre2.at(contcons)=nombre.at(i);
+							contcons++;
+							
+						}
+						else
+							contvoc++;
+					cout<<"El nombre sin vocales ahora es: ";
+					for (int j=0; j<(longitud-contvoc); j++)
+						cout<<nombre2.at(j);
+					cout<<endl<<endl;
+					break;
+				}
+			case 0:
+				{
+					cout<<"Saliendo...";
+					break;
+				}
+			default:
+				{
+					cout<<"Opcion no valida";
+					break;
+				}
+			}
+	
+
+	
+
+		
+		}while (opcion!=0);
+		getch();
+	}
